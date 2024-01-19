@@ -49,7 +49,7 @@ export const loaders: { [ext: string]: esbuild.Loader } = {
 };
 
 export function getLoaderForFile(file: string): esbuild.Loader {
-  let ext = path.extname(file);
+  let ext = path.extname(file).toLowerCase();
   if (ext in loaders) return loaders[ext];
   throw new Error(`Cannot get loader for file ${file}`);
 }
